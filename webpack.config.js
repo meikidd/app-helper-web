@@ -1,4 +1,6 @@
-module.exports = {
+var glob = require('glob');
+
+var webpackConfig = {
     //页面入口文件配置
     entry: {
         home : './src/home/index.js'
@@ -19,3 +21,7 @@ module.exports = {
         ]
     }
 };
+
+
+
+module.exports = webpackConfig;
