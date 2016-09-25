@@ -26,7 +26,6 @@
     "loading": "^1.13.0"
   },
   "devDependencies": {
-    "eslint": "^3.6.0",
-    "eslint-config-node-style-guide": "^3.0.0"
+    "eslint": "^3.6.0"
   }
 }
