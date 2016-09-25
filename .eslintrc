@@ -1,0 +1,11 @@
+{
+  "extends": "node-style-guide",
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "space-after-keywords": ["off", "never"]
+  }
+}

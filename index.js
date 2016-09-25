@@ -1,16 +1,16 @@
-const koa = require('koa');
+const Koa = require('koa');
 const path = require('path');
 const views = require('koa-views');
 const htdocs = require('koa-static');
 const router = require('./app/router');
 
-var app = new koa();
+var app = new Koa();
 
 // static files
 app.use(htdocs('./htdocs'));
 
 // views
-app.use(views(path.resolve(__dirname, 'app/view'), { extension: 'ejs' }));
+app.use(views(path.resolve(__dirname, 'app/view'), {extension: 'ejs'}));
 
 // router
 router(app);
