@@ -4,8 +4,8 @@ const router = require('koa-router')();
 
 const controllerPath = path.resolve(__dirname, 'controller');
 
-module.exports = (app) => {
-  loading(controllerPath).into(app, 'controllers');
+module.exports = app => {
+  loading(controllerPath, { call:false }).into(app, 'controllers');
 
   router.get('/home', app.controllers.home.home);
 
