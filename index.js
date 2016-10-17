@@ -7,7 +7,7 @@ const router = require('./app/router');
 var app = new Koa();
 
 // static files
-app.use(htdocs('./htdocs'));
+app.use(htdocs('./htdocs/build'));
 
 // views
 app.use(views(path.resolve(__dirname, 'app/view'), {extension: 'ejs'}));
