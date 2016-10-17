@@ -10,7 +10,7 @@ class Tutorial {
     this.title = props.title;
     this.device = Enums.Device.get(props.device);
     this.os = Enums.OS.get(props.os);
-    this.userId = props.user_id;
+    this.creator = props.creator;
     this.elements = props.elements;
   }
   *getElements() {
@@ -46,7 +46,7 @@ class Tutorial {
       elements: this.elements.map(element => element.id).join(),
       device: this.device.value,
       os: this.os.value,
-      user_id: this.userId
+      creator: this.creator
     }
   }
 }
@@ -61,13 +61,13 @@ exports.factory = function *(props) {
     let tutorials = [];
     for (var i = 0; i < props.length; i++) {
       let tutorial = new Tutorial(props[i]);
-      yield tutorial.getElements();
+      // yield tutorial.getElements();
       tutorials.push(tutorial);
     }
     return tutorials;
   } else {
     let tutorial = new Tutorial(props);
-    yield tutorial.getElements();
+    // yield tutorial.getElements();
     return tutorial;
   }
 }

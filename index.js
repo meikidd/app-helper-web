@@ -3,8 +3,18 @@ const path = require('path');
 const views = require('koa-views');
 const htdocs = require('koa-static');
 const router = require('./app/router');
+const co = require('co');
 
 var app = new Koa();
+
+app.use(co.wrap(function *(ctx, next) {
+  try {
+    yield next();
+  } catch(error) {
+    console.log('出错啦!!');
+    console.log(error);
+  }
+}));
 
 // static files
 app.use(htdocs('./htdocs/build'));
