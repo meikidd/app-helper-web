@@ -16,6 +16,12 @@ app.use(co.wrap(function *(ctx, next) {
   }
 }));
 
+/* logger */
+app.use(co.wrap(function *(ctx, next) {
+  console.log((new Date()).toLocaleString(), 'url:', ctx.url);
+  yield next();
+}));
+
 // static files
 app.use(htdocs('./htdocs/build'));
 

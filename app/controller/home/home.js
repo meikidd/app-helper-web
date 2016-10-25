@@ -1,12 +1,12 @@
-const testTable = require('../../model/test_table');
+const Tutorial = require('../../model/Tutorial');
 const co = require('co');
 
 module.exports = co.wrap(function * (ctx) {
-  const list = yield testTable.list();
+  const list = yield Tutorial.list();
 
   yield ctx.render('home', {
     title: 'Home',
     h1: 'hello world',
-    list,
+    list: JSON.stringify(list, null, 2),
   });
 });
