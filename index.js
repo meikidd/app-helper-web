@@ -1,7 +1,7 @@
 const Koa = require('koa');
 const path = require('path');
 const views = require('koa-views');
-const htdocs = require('koa-static');
+const htdocs = require('koa-static-cache');
 const router = require('./app/router');
 const co = require('co');
 
@@ -23,7 +23,9 @@ app.use(co.wrap(function *(ctx, next) {
 }));
 
 // static files
-app.use(htdocs('./htdocs/build'));
+app.use(htdocs('./htdocs/build', {
+  prefix: '/static'
+}));
 
 // views
 app.use(views(path.resolve(__dirname, 'app/view'), {extension: 'ejs'}));
